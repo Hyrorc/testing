@@ -325,10 +325,20 @@ main, .footer { position: relative; z-index: 1; }
   outline: none;
   transition: border-color 0.25s ease, background 0.25s ease;
   appearance: none;
+  color-scheme: dark;
 }
 .field input::placeholder, .field textarea::placeholder { color: rgba(245, 243, 240, 0.35); }
 .field input:focus, .field select:focus, .field textarea:focus { border-color: rgba(203, 168, 77, 0.6); background: rgba(203, 168, 77, 0.04); }
 .field select { color: rgba(245, 243, 240, 0.75); }
+.field select option {
+  background: #031B3A;
+  color: var(--ivory);
+}
+.field select option:checked,
+.field select option:hover {
+  background: rgba(203, 168, 77, 0.2);
+  color: var(--gold-soft);
+}
 .field select:invalid { color: rgba(245, 243, 240, 0.35); }
 .select-wrap { position: relative; }
 .select-wrap::after {
