@@ -11,6 +11,12 @@ import Jobs from './pages/Jobs'
 import Partner from './pages/Partner'
 import Join from './pages/Join'
 import Contact from './pages/Contact'
+import AdminLogin from './pages/AdminLogin'
+import AdminDashboard from './pages/AdminDashboard'
+
+function AdminGate() {
+  return <AdminLogin onSuccess={() => window.location.assign('/admin/dashboard')} />
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -34,6 +40,8 @@ export default function App() {
           <Route path="/partner" element={<Partner />} />
           <Route path="/join" element={<Join />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<AdminGate />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
           {/* Old URLs redirect so existing shared links keep working */}
           <Route path="/what-we-do" element={<Navigate to="/about-us" replace />} />
           <Route path="/our-services" element={<Navigate to="/services" replace />} />

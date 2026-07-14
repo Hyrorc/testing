@@ -1,5 +1,8 @@
-// Vercel serverless function: relays form submissions to Resend.
-// The API key lives in the RESEND_API_KEY env var (never in the client bundle).
+// Vercel serverless function: relays form submissions to Resend, and forwards
+// candidate submissions (jobs/join) into RecruitCRM.
+// The API keys live in RESEND_API_KEY / RECRUITCRM_API_TOKEN env vars.
+
+import { createCandidate, SOURCE_PROFILE, SOURCE_FREELANCER } from './_recruitcrm.js'
 
 const TO = 'hyro@hyrorc.com'
 const FROM = 'HYRO Website <onboarding@resend.dev>'
@@ -8,6 +11,57 @@ const FORMS = {
   contact: 'New contact message',
   jobs: 'New candidate profile',
   join: 'New freelancer application',
+}
+
+// Map a form submission to a RecruitCRM candidate. Returns null for forms that
+// are inquiries rather than candidates (contact).
+function toCandidate(form, fields, attachment) {
+  const cvFile =
+    attachment && attachment.filename && attachment.content
+      ? {
+          buffer: Buffer.from(attachment.content, 'base64'),
+          fileName: attachment.filename,
+          contentType: attachment.contentType || 'application/octet-stream',
+        }
+      : null
+
+  if (form === 'jobs') {
+    const prefs = [
+      fields.seniority ? `Seniority: ${fields.seniority}` : '',
+      fields.workType ? `Work type: ${fields.workType}` : '',
+    ]
+      .filter(Boolean)
+      .join(' | ')
+    return {
+      fullName: fields.name,
+      email: fields.email,
+      phone: fields.phone || null,
+      industry: fields.industry || null,
+      location: fields.city || null,
+      skills: prefs || null,
+      source: SOURCE_PROFILE,
+      cvFileName: attachment?.filename || null,
+      cvFile,
+    }
+  }
+
+  if (form === 'join') {
+    return {
+      fullName: fields.name,
+      email: fields.email,
+      phone: fields.phone || null,
+      industry: fields.expertise || null,
+      location: fields.city || null,
+      skills: fields.services || null,
+      bio: fields.bio || null,
+      portfolioUrl: fields.portfolio || null,
+      source: SOURCE_FREELANCER,
+      cvFileName: attachment?.filename || null,
+      cvFile,
+    }
+  }
+
+  return null
 }
 
 function esc(s) {
@@ -75,6 +129,15 @@ export default async function handler(req, res) {
       res.status(502).json({ error: data.message || 'Send failed' })
       return
     }
+
+    // Forward candidate submissions into RecruitCRM. This is best-effort: the
+    // email already went out, so a CRM hiccup must not fail the submission.
+    const candidate = toCandidate(form, fields, attachment)
+    if (candidate) {
+      const crm = await createCandidate(candidate)
+      if (!crm.ok) console.error('RecruitCRM push failed:', crm.error)
+    }
+
     res.status(200).json({ ok: true, id: data.id })
   } catch (err) {
     console.error(err)

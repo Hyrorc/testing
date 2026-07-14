@@ -1,4 +1,5 @@
-// Client helper: posts a form payload to the /api/send relay.
+// Client helper: posts a form payload to the /api/send relay, which emails the
+// team and forwards candidate submissions into RecruitCRM.
 
 export async function sendForm(form, fields, file) {
   const payload = { form, fields }
@@ -9,6 +10,7 @@ export async function sendForm(form, fields, file) {
     }
     payload.attachment = {
       filename: file.name,
+      contentType: file.type || 'application/octet-stream',
       content: await toBase64(file),
     }
   }
@@ -22,6 +24,7 @@ export async function sendForm(form, fields, file) {
     const data = await res.json().catch(() => ({}))
     throw new Error(data.error || 'Something went wrong. Please try again.')
   }
+
   return res.json()
 }
 
