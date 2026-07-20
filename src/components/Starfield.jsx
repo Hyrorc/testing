@@ -80,5 +80,6 @@ export default function Starfield() {
     }
   }, [])
 
-  return <canvas ref={ref} className="starfield" aria-hidden="true" />
+  // Retired for the editorial (light) theme — no dark star sky.
+  return null
 }

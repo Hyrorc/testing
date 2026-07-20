@@ -1,128 +1,95 @@
 import { Link } from 'react-router-dom'
-import { SERVICES, PARTNER } from '../lib/content'
+import { SERVICES } from '../lib/content'
 import { Icon } from '../components/Icons'
 import Reveal from '../components/Reveal'
-import Stars from '../components/Stars'
+import Photo from '../components/Photo'
+import { PHOTOS } from '../lib/photos'
+import servicesBg from '../assets/brand/services.jpg'
+
+const SERVICE_PHOTOS = [PHOTOS.leaderWoman, PHOTOS.lounge, PHOTOS.handshake]
 
 export default function OurServices() {
   return (
     <>
-      <header className="page-head">
-        <Stars />
-        <div className="container">
-          <Reveal>
-            <span className="kicker centered">{SERVICES.kicker}</span>
-          </Reveal>
-          <Reveal delay={1}>
-            <h1 style={{ marginTop: 22 }}>
-              {SERVICES.h2a}
-              <br />
-              <span className="gold-italic">{SERVICES.h2b}</span>
-            </h1>
-          </Reveal>
+      <header className="about-hero">
+        <img src={servicesBg} className="about-hero-bg-img" alt="" aria-hidden="true" loading="eager" />
+        <div className="about-hero-overlay">
+          <div className="container">
+            <div className="about-hero-copy" style={{ textAlign: 'center', marginInline: 'auto' }}>
+              <Reveal>
+                <span className="kicker centered">{SERVICES.kicker}</span>
+              </Reveal>
+              <Reveal delay={1}>
+                <h1 className="about-hero-h1" style={{ marginTop: 20 }}>
+                  {SERVICES.h2a}<br />
+                  <span className="gold-italic">{SERVICES.h2b}</span>
+                </h1>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </header>
 
-      <section className="section">
-        <div className="container" style={{ display: 'flex', flexDirection: 'column', gap: 40 }}>
-          {SERVICES.items.map((item, i) => (
-            <Reveal key={item.num} delay={i % 2 ? 1 : 0}>
-              <div className="card" style={{ padding: '48px 52px', borderRadius: 24 }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 36, alignItems: 'center' }}>
-                  <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-                      <span className="num-italic" style={{ fontSize: 52 }}>{item.num}</span>
-                      <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 40, fontWeight: 500, lineHeight: 1.1 }}>
-                        {item.title}
-                      </h2>
-                    </div>
-                    <p
-                      style={{
-                        marginTop: 18,
-                        fontFamily: "'Cormorant Garamond', Georgia, serif",
-                        fontStyle: 'italic',
-                        fontSize: 19,
-                        color: 'var(--gold-soft)',
-                      }}
-                    >
-                      {item.tag}
-                    </p>
-                    <p className="card-desc" style={{ marginTop: 16, fontSize: 14.5 }}>{item.desc}</p>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 24 }}>
-                      {item.tags.map((t) => (
-                        <span
-                          key={t}
-                          className="muted"
-                          style={{
-                            border: '1px solid rgba(203,168,77,.25)',
-                            borderRadius: 999,
-                            padding: '8px 18px',
-                            fontSize: 11,
-                            letterSpacing: '0.08em',
-                          }}
-                        >
-                          {t}
-                        </span>
-                      ))}
-                    </div>
-                    <div style={{ marginTop: 28 }}>
-                      <Link to="/contact" className="btn btn-text">
-                        {item.cta || 'Start a Conversation'} <Icon name="arrow" size={14} />
-                      </Link>
-                    </div>
+      {SERVICES.items.map((item, i) => {
+        const reverse = i % 2 === 1
+        return (
+          <section key={item.num} className={`section${reverse ? ' cream' : ''}`}>
+            <div className="container">
+              <div className={`media-split${reverse ? ' reverse' : ''}`}>
+                <Reveal className="ms-media">
+                  <Photo src={SERVICE_PHOTOS[i % SERVICE_PHOTOS.length]} alt={item.title} ratio="5 / 4">
+                    <span className="photo-badge" style={{ top: 18, left: 18 }}>{`0${i + 1}`}</span>
+                  </Photo>
+                </Reveal>
+                <Reveal delay={1} className="ms-copy">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                    <span className="icon-ring"><Icon name={item.icon} size={22} /></span>
+                    <span className="sec-index">SERVICE {item.num}</span>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <div
-                      style={{
-                        width: 120,
-                        height: 120,
-                        borderRadius: 999,
-                        border: '1px solid rgba(203,168,77,.25)',
-                        background: 'radial-gradient(circle at 50% 40%, rgba(203,168,77,0.14) 0%, rgba(203,168,77,0) 70%)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        color: 'var(--gold)',
-                        flexShrink: 0,
-                      }}
-                    >
-                      <Icon name={item.icon} size={40} />
-                    </div>
+                  <h2 className="section-h2" style={{ marginTop: 18 }}>{item.title}</h2>
+                  <p style={{ marginTop: 12, fontFamily: 'var(--font-head)', fontStyle: 'italic', fontWeight: 500, fontSize: 21, color: 'var(--gold-deep)' }}>
+                    {item.tag}
+                  </p>
+                  <p className="muted" style={{ marginTop: 16, lineHeight: 1.8 }}>{item.desc}</p>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 22 }}>
+                    {item.tags.map((t) => (
+                      <span
+                        key={t}
+                        style={{
+                          border: '1px solid var(--line-2)', borderRadius: 999, padding: '8px 16px',
+                          fontSize: 11.5, fontWeight: 600, letterSpacing: '0.06em', color: 'var(--navy)',
+                          textTransform: 'uppercase',
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
                   </div>
-                </div>
+                  <div style={{ marginTop: 26 }}>
+                    <Link to={item.cta ? '/partner' : '/contact'} className="btn btn-navy">
+                      {item.cta || 'Start a Conversation'} <Icon name="arrow" size={14} />
+                    </Link>
+                  </div>
+                </Reveal>
               </div>
-            </Reveal>
-          ))}
-
-          <Reveal delay={1}>
-            <div className="card" style={{ padding: '44px 52px', borderRadius: 24, textAlign: 'center' }}>
-              <p
-                style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
-                  fontStyle: 'italic',
-                  fontSize: 26,
-                  color: 'var(--gold-soft)',
-                  lineHeight: 1.4,
-                }}
-              >
-                {SERVICES.closer}
-              </p>
             </div>
-          </Reveal>
-        </div>
-      </section>
+          </section>
+        )
+      })}
 
-      <section className="cta-band">
-        <span className="ghost-word">HYRO</span>
-        <Stars />
-        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+      {/* Closer + CTA on navy */}
+      <section className="cta-photo">
+        <div className="cta-bg">
+          <Photo src={PHOTOS.strategy} alt="" />
+        </div>
+        <div className="container">
           <Reveal>
-            <h2 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: 'clamp(34px, 4.5vw, 50px)', fontWeight: 500, lineHeight: 1.15 }}>
-              Ready to hire <span className="gold-italic">your right one?</span>
-            </h2>
+            <p className="section-h2" style={{ fontWeight: 700, maxWidth: 820, marginInline: 'auto', lineHeight: 1.3 }}>
+              {SERVICES.closer}
+            </p>
           </Reveal>
           <Reveal delay={1}>
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 16, marginTop: 36 }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 14, marginTop: 34 }}>
               <Link to="/partner" className="btn btn-primary">
                 Partner With Us <Icon name="arrow" size={14} />
               </Link>

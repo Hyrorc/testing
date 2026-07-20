@@ -361,8 +361,8 @@ export default function AdminDashboard() {
 }
 
 const ADMIN_CSS = `
-.adm { position: relative; z-index: 2; min-height: 80vh; padding: 150px 24px 100px; background:
-  radial-gradient(90% 90% at 50% -10%, rgba(203,168,77,0.05) 0%, rgba(1,13,30,0) 60%); }
+.adm { position: relative; z-index: 2; min-height: 100vh; padding: 150px 24px 100px; margin-bottom: -1px; background:
+  radial-gradient(90% 80% at 50% -10%, rgba(244,181,45,0.10) 0%, rgba(15,26,60,0) 60%), var(--navy-deep); }
 .adm-wrap { max-width: 1360px; margin: 0 auto; }
 .adm-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 32px; }
 .adm-kicker { display: inline-block; font-family: var(--font-body); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }

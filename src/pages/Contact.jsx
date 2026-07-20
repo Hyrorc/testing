@@ -2,7 +2,8 @@ import { useRef, useState } from 'react'
 import { Icon } from '../components/Icons'
 import { sendForm } from '../lib/sendForm'
 import Reveal from '../components/Reveal'
-import Stars from '../components/Stars'
+import Photo from '../components/Photo'
+import { PHOTOS } from '../lib/photos'
 import { FOOTER } from '../lib/content'
 
 const TOPICS = [
@@ -45,28 +46,43 @@ export default function Contact() {
   return (
     <>
       <header className="page-head">
-        <Stars />
         <div className="container">
           <Reveal>
             <span className="kicker centered">Contact Us</span>
           </Reveal>
           <Reveal delay={1}>
-            <h1 style={{ marginTop: 24 }}>
+            <h1 style={{ marginTop: 22 }}>
               Let's <span className="gold-italic">Connect.</span>
             </h1>
           </Reveal>
           <Reveal delay={2}>
-            <p className="muted" style={{ maxWidth: 560, margin: '26px auto 0', fontSize: 15, fontWeight: 300, lineHeight: 1.75 }}>
+            <p className="muted" style={{ maxWidth: 560, margin: '24px auto 0', fontSize: 15, lineHeight: 1.75 }}>
               Tell us what you need. We read every message and reply personally, usually within one business day.
             </p>
           </Reveal>
         </div>
       </header>
 
-      <section className="section" style={{ paddingTop: 20 }}>
+      <section className="section" style={{ paddingTop: 64 }}>
         <div className="container">
+          <div className="form-split">
+            <Reveal className="form-aside">
+              <Photo src={PHOTOS.desk} alt="Get in touch with HYRO">
+                <span className="photo-badge" style={{ top: 16, left: 16 }}>We reply in ~1 day</span>
+              </Photo>
+              <div className="feat-list">
+                <a className="feat" href={`mailto:${FOOTER.email}`}>
+                  <span className="fx"><Icon name="mail" size={14} /></span>
+                  <span className="ft">{FOOTER.email}</span>
+                </a>
+                <div className="feat">
+                  <span className="fx"><Icon name="pin" size={14} /></span>
+                  <span className="ft">{FOOTER.location}</span>
+                </div>
+              </div>
+            </Reveal>
           <Reveal>
-            <form ref={formRef} className="form-card" style={{ maxWidth: 760, margin: '0 auto' }} onSubmit={onSubmit}>
+            <form ref={formRef} className="form-card" onSubmit={onSubmit}>
               <div>
                 <div className="form-sec-head" style={{ marginBottom: 18 }}>Your Details</div>
                 <div className="form-row">
@@ -141,6 +157,7 @@ export default function Contact() {
               </p>
             </form>
           </Reveal>
+          </div>
         </div>
       </section>
     </>

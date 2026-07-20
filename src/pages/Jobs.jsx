@@ -3,7 +3,8 @@ import { JOBS_FORM } from '../lib/content'
 import { sendForm } from '../lib/sendForm'
 import { Icon } from '../components/Icons'
 import Reveal from '../components/Reveal'
-import Stars from '../components/Stars'
+import Photo from '../components/Photo'
+import { PHOTOS } from '../lib/photos'
 
 export default function Jobs() {
   const [submitted, setSubmitted] = useState(false)
@@ -48,13 +49,12 @@ export default function Jobs() {
   return (
     <>
       <header className="page-head">
-        <Stars />
         <div className="container">
           <Reveal>
             <span className="kicker centered">{JOBS_FORM.kicker}</span>
           </Reveal>
           <Reveal delay={1}>
-            <h1 style={{ marginTop: 22 }}>
+            <h1 style={{ marginTop: 20 }}>
               {JOBS_FORM.h1a} <span className="gold-italic">{JOBS_FORM.h1b}</span>
             </h1>
           </Reveal>
@@ -66,10 +66,21 @@ export default function Jobs() {
         </div>
       </header>
 
-      <section className="section" style={{ paddingTop: 40 }}>
+      <section className="section" style={{ paddingTop: 64 }}>
         <div className="container">
+          <div className="form-split">
+            <Reveal className="form-aside">
+              <Photo src={PHOTOS.cvDesk} alt="Unlock your potential">
+                <span className="photo-badge" style={{ top: 16, left: 16 }}>For Candidates</span>
+              </Photo>
+              <div className="feat-list">
+                <div className="feat"><span className="fx"><Icon name="check" size={14} /></span><span className="ft">No endless applications</span></div>
+                <div className="feat"><span className="fx"><Icon name="check" size={14} /></span><span className="ft">We reach out personally</span></div>
+                <div className="feat"><span className="fx"><Icon name="check" size={14} /></span><span className="ft">Your profile stays private</span></div>
+              </div>
+            </Reveal>
           <Reveal>
-            <form className="form-card" style={{ maxWidth: 760, margin: '0 auto' }} onSubmit={handleSubmit}>
+            <form className="form-card" onSubmit={handleSubmit}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                 <div className="form-sec-head">Personal</div>
                 <div className="form-row">
@@ -178,6 +189,7 @@ export default function Jobs() {
               </div>
             </form>
           </Reveal>
+          </div>
         </div>
       </section>
     </>

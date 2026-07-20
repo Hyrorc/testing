@@ -2,94 +2,103 @@ import { Link } from 'react-router-dom'
 import { PARTNER } from '../lib/content'
 import { Icon } from '../components/Icons'
 import Reveal from '../components/Reveal'
-import Stars from '../components/Stars'
+import Photo from '../components/Photo'
+import { PHOTOS } from '../lib/photos'
 
 export default function Partner() {
   return (
     <>
-      <header className="page-head">
-        <Stars />
-        <div className="container">
-          <Reveal>
-            <span className="kicker centered">{PARTNER.kicker}</span>
-          </Reveal>
-          <Reveal delay={1}>
-            <h1 style={{ marginTop: 22 }}>
-              {PARTNER.h1a} <span className="gold-italic">{PARTNER.h1b}</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={2}>
-            <p className="muted" style={{ maxWidth: 620, margin: '22px auto 0', fontSize: 15, lineHeight: 1.75 }}>
-              {PARTNER.sub}
-            </p>
-          </Reveal>
+      <header className="page-head page-head--photo">
+        <div className="ph-media" aria-hidden="true">
+          <Photo src={PHOTOS.cityExec} alt="Partner with HYRO" veil />
+        </div>
+        <div className="ph-inner">
+          <div className="ph-copy">
+            <Reveal>
+              <span className="kicker">{PARTNER.kicker}</span>
+            </Reveal>
+            <Reveal delay={1}>
+              <h1 style={{ marginTop: 20 }}>
+                {PARTNER.h1a} <span className="gold-italic">{PARTNER.h1b}</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={2}>
+              <p className="muted" style={{ maxWidth: 500, marginTop: 22, fontSize: 16, lineHeight: 1.75 }}>
+                {PARTNER.sub}
+              </p>
+            </Reveal>
+          </div>
         </div>
       </header>
 
+      {/* INTRO + BENEFITS — media split */}
       <section className="section">
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 70, alignItems: 'start' }}>
-            <Reveal>
-              <p className="muted" style={{ fontSize: 15, lineHeight: 1.85 }}>{PARTNER.intro}</p>
+          <div className="media-split">
+            <Reveal className="ms-media">
+              <Photo src={PHOTOS.boardroomEmpty} alt="The cost of a bad hire" ratio="5 / 4" />
             </Reveal>
-            <Reveal delay={1}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+            <Reveal delay={1} className="ms-copy">
+              <span className="kicker">Your Talent Partner</span>
+              <p className="lead" style={{ marginTop: 18 }}>{PARTNER.intro}</p>
+              <div className="feat-list" style={{ marginTop: 26 }}>
                 {PARTNER.benefits.map((b) => (
-                  <div key={b} style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                    <span style={{ color: 'var(--gold)', display: 'inline-flex' }}>
-                      <Icon name="check" size={15} />
-                    </span>
-                    <span style={{ fontSize: 14, color: 'var(--ivory)' }}>{b}</span>
+                  <div key={b} className="feat">
+                    <span className="fx"><Icon name="check" size={15} /></span>
+                    <span className="ft">{b}</span>
                   </div>
                 ))}
               </div>
             </Reveal>
           </div>
+        </div>
+      </section>
 
-          <div style={{ marginTop: 80 }}>
-            <Reveal>
-              <div className="form-sec-head">What to Expect</div>
-            </Reveal>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24, marginTop: 28 }}>
-              {PARTNER.expect.map((step, i) => (
-                <Reveal key={step.num} delay={Math.min(i + 1, 4)}>
-                  <div className="card" style={{ height: '100%', display: 'flex', flexDirection: 'column', gap: 12 }}>
-                    <span className="num-italic" style={{ fontSize: 34 }}>{step.num}</span>
-                    <h3 style={{ fontFamily: 'var(--font-display)', fontSize: 22, fontWeight: 500, color: 'var(--ivory)' }}>
-                      {step.title}
-                    </h3>
-                    <p className="card-desc">{step.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-
+      {/* WHAT TO EXPECT — cream */}
+      <section className="section cream">
+        <div className="container">
           <Reveal>
-            <div
-              className="card"
-              style={{
-                marginTop: 80,
-                padding: '64px 52px',
-                borderRadius: 24,
-                textAlign: 'center',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                gap: 22,
-              }}
-            >
-              <h2 style={{ fontFamily: 'var(--font-display)', fontSize: 42, fontWeight: 500, lineHeight: 1.15 }}>
-                Ready when <span className="gold-italic">you are.</span>
-              </h2>
-              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 18, flexWrap: 'wrap' }}>
-                <Link to="/contact" className="btn btn-primary">
-                  <Icon name="mail" size={14} /> Contact Us
-                </Link>
-                <span style={{ color: 'var(--gold)', letterSpacing: '0.22em', fontSize: 12 }}>
-                  {PARTNER.email.toUpperCase()}
-                </span>
-              </div>
+            <div className="sec-head" style={{ marginBottom: 36 }}>
+              <span className="kicker">What to Expect</span>
+              <h2 className="section-h2" style={{ marginTop: 14 }}>A clear, four-step engagement.</h2>
+            </div>
+          </Reveal>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))', gap: 24 }}>
+            {PARTNER.expect.map((step, i) => (
+              <Reveal key={step.num} delay={Math.min(i + 1, 4)}>
+                <div className="card" style={{ height: '100%', display: 'flex', flexDirection: 'column', gap: 12 }}>
+                  <span className="num-italic" style={{ fontSize: 34 }}>{step.num}</span>
+                  <h3 style={{ fontFamily: 'var(--font-head)', fontSize: 24, fontWeight: 600, color: 'var(--navy)' }}>
+                    {step.title}
+                  </h3>
+                  <p className="card-desc">{step.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="cta-photo">
+        <div className="cta-bg">
+          <Photo src={PHOTOS.boardroom} alt="" />
+        </div>
+        <div className="container">
+          <Reveal>
+            <span className="kicker centered">Ready When You Are</span>
+            <h2 className="section-h2" style={{ marginTop: 16 }}>
+              Let&apos;s find your <span className="gold-italic">right one.</span>
+            </h2>
+          </Reveal>
+          <Reveal delay={1}>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 18, flexWrap: 'wrap', marginTop: 32 }}>
+              <Link to="/contact" className="btn btn-primary">
+                <Icon name="mail" size={14} /> Contact Us
+              </Link>
+              <a href={`mailto:${PARTNER.email}`} style={{ color: 'var(--gold)', letterSpacing: '0.16em', fontSize: 13, fontWeight: 600 }}>
+                {PARTNER.email.toUpperCase()}
+              </a>
             </div>
           </Reveal>
         </div>

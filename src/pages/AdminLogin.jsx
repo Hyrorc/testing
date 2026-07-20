@@ -55,7 +55,7 @@ export default function AdminLogin({ onSuccess }) {
   const labelStyle = { display: 'block', marginBottom: 8, fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(245,243,240,0.7)' }
 
   return (
-    <section style={{ position: 'relative', zIndex: 2, minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '150px 24px 80px' }}>
+    <section style={{ position: 'relative', zIndex: 2, minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '150px 24px 80px', background: 'radial-gradient(90% 70% at 50% 0%, rgba(244,181,45,0.10), rgba(15,26,60,0) 60%), var(--navy-deep)' }}>
       <form onSubmit={handleSubmit} style={{ width: '100%', maxWidth: 440, padding: '44px 40px', border: '1px solid rgba(245,243,240,0.08)', borderRadius: 24, background: 'rgba(245,243,240,0.02)', backdropFilter: 'blur(6px)' }}>
         <span style={{ display: 'inline-block', fontSize: 11, letterSpacing: '0.28em', textTransform: 'uppercase', color: 'var(--gold)', marginBottom: 14 }}>HYRO Admin</span>
         <h1 style={{ marginBottom: 8, color: 'var(--ivory)', fontSize: '2.2rem', fontFamily: 'var(--font-display)', fontWeight: 500 }}>Admin access</h1>

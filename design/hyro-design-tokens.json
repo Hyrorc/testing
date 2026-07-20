@@ -1,0 +1,118 @@
+{
+  "global": {
+    "color": {
+      "ink": { "value": "#0B0F14", "type": "color", "description": "Primary page background (near-black)" },
+      "inkSoft": { "value": "#101722", "type": "color" },
+      "navy": { "value": "#111827", "type": "color" },
+      "navyDeep": { "value": "#0C131D", "type": "color" },
+      "navySoft": { "value": "#162231", "type": "color" },
+      "gold": { "value": "#B9974A", "type": "color", "description": "Primary accent" },
+      "goldDeep": { "value": "#9C7D38", "type": "color" },
+      "goldSoft": { "value": "#D6C28C", "type": "color" },
+      "ivory": { "value": "#F5F3F0", "type": "color", "description": "Primary text on dark" },
+      "ivoryBright": { "value": "#FDFCFA", "type": "color" },
+      "goldTint": { "value": "#CBA84D", "type": "color", "description": "Gold used in rgba tints throughout the UI" }
+    },
+    "textAlpha": {
+      "primary": { "value": "rgba(245,243,240,1)", "type": "color", "description": "ivory 100%" },
+      "80": { "value": "rgba(245,243,240,0.8)", "type": "color" },
+      "72": { "value": "rgba(245,243,240,0.72)", "type": "color", "description": "muted body" },
+      "60": { "value": "rgba(245,243,240,0.6)", "type": "color", "description": "nav / footer links" },
+      "40": { "value": "rgba(245,243,240,0.4)", "type": "color", "description": "labels / captions" },
+      "35": { "value": "rgba(245,243,240,0.35)", "type": "color", "description": "placeholders" }
+    },
+    "strokeAlpha": {
+      "08": { "value": "rgba(245,243,240,0.08)", "type": "color", "description": "default card / divider stroke" },
+      "12": { "value": "rgba(245,243,240,0.12)", "type": "color", "description": "input stroke" },
+      "15": { "value": "rgba(245,243,240,0.15)", "type": "color" },
+      "20": { "value": "rgba(245,243,240,0.2)", "type": "color", "description": "ghost button stroke" },
+      "goldStroke": { "value": "rgba(203,168,77,0.4)", "type": "color", "description": "gold ring / dashed stroke" },
+      "goldStrokeHover": { "value": "rgba(203,168,77,0.6)", "type": "color" }
+    },
+    "surfaceAlpha": {
+      "card": { "value": "rgba(245,243,240,0.025)", "type": "color" },
+      "formCard": { "value": "rgba(245,243,240,0.02)", "type": "color" },
+      "input": { "value": "rgba(245,243,240,0.03)", "type": "color" },
+      "goldWash": { "value": "rgba(203,168,77,0.04)", "type": "color", "description": "focus / hover wash" }
+    },
+    "gradient": {
+      "goldH": { "value": "linear-gradient(90deg, #D6C28C 0%, #B9974A 100%)", "type": "color", "description": "Primary button / active chip" },
+      "goldV": { "value": "linear-gradient(180deg, #D6C28C 0%, #B9974A 55%, #9C7D38 100%)", "type": "color", "description": "Gold-italic text clip" }
+    },
+    "fontFamilies": {
+      "display": { "value": "Cormorant Garamond", "type": "fontFamilies", "description": "Headings, wordmark, numerals" },
+      "body": { "value": "Plus Jakarta Sans", "type": "fontFamilies", "description": "UI, body, labels" }
+    },
+    "fontWeights": {
+      "light": { "value": "300", "type": "fontWeights" },
+      "regular": { "value": "400", "type": "fontWeights" },
+      "medium": { "value": "500", "type": "fontWeights" },
+      "semibold": { "value": "600", "type": "fontWeights" },
+      "bold": { "value": "700", "type": "fontWeights" }
+    },
+    "fontSize": {
+      "micro": { "value": "9", "type": "fontSizes" },
+      "10": { "value": "10", "type": "fontSizes" },
+      "label": { "value": "11", "type": "fontSizes" },
+      "cardTitle": { "value": "12", "type": "fontSizes" },
+      "bodySm": { "value": "13", "type": "fontSizes" },
+      "body": { "value": "15", "type": "fontSizes" },
+      "bodyLg": { "value": "17", "type": "fontSizes" },
+      "indChip": { "value": "17", "type": "fontSizes" },
+      "wordmark": { "value": "26", "type": "fontSizes" },
+      "statValue": { "value": "48", "type": "fontSizes", "description": "clamp(32,3.4vw,48)" },
+      "h2": { "value": "52", "type": "fontSizes", "description": "section h2 — clamp(30,4vw,52)" },
+      "h1Page": { "value": "64", "type": "fontSizes", "description": "page-head h1 — clamp(36,5vw,68)" },
+      "hero": { "value": "88", "type": "fontSizes", "description": "hero h1 — clamp(44,6.6vw,92)" }
+    },
+    "letterSpacing": {
+      "tight": { "value": "14%", "type": "letterSpacing", "description": "0.14em field labels" },
+      "wide": { "value": "18%", "type": "letterSpacing", "description": "0.18em buttons" },
+      "wider": { "value": "22%", "type": "letterSpacing", "description": "0.22em nav / stat labels" },
+      "widest": { "value": "28%", "type": "letterSpacing", "description": "0.28em chips / footer heads" },
+      "kicker": { "value": "36%", "type": "letterSpacing", "description": "0.36em kickers" },
+      "wordmark": { "value": "35%", "type": "letterSpacing", "description": "0.35em HYRO wordmark" }
+    },
+    "lineHeight": {
+      "display": { "value": "108%", "type": "lineHeights" },
+      "hero": { "value": "106%", "type": "lineHeights" },
+      "heading": { "value": "115%", "type": "lineHeights" },
+      "body": { "value": "170%", "type": "lineHeights" },
+      "bodyTight": { "value": "165%", "type": "lineHeights" }
+    },
+    "borderRadius": {
+      "input": { "value": "10", "type": "borderRadius" },
+      "dropzone": { "value": "14", "type": "borderRadius" },
+      "card": { "value": "16", "type": "borderRadius" },
+      "panel": { "value": "18", "type": "borderRadius" },
+      "formCard": { "value": "24", "type": "borderRadius" },
+      "pill": { "value": "999", "type": "borderRadius" }
+    },
+    "spacing": {
+      "xs": { "value": "8", "type": "spacing" },
+      "sm": { "value": "12", "type": "spacing" },
+      "md": { "value": "20", "type": "spacing" },
+      "lg": { "value": "36", "type": "spacing" },
+      "xl": { "value": "60", "type": "spacing" },
+      "sectionY": { "value": "96", "type": "spacing", "description": "section vertical padding (56 mobile)" },
+      "padX": { "value": "72", "type": "spacing", "description": "container inset (40 tablet / 24 mobile)" },
+      "container": { "value": "1552", "type": "sizing", "description": "max content width" }
+    },
+    "typography": {
+      "heroH1": { "value": { "fontFamily": "Cormorant Garamond", "fontWeight": "500", "fontSize": "88", "lineHeight": "106%" }, "type": "typography" },
+      "h1Page": { "value": { "fontFamily": "Cormorant Garamond", "fontWeight": "500", "fontSize": "64", "lineHeight": "112%" }, "type": "typography" },
+      "h2Section": { "value": { "fontFamily": "Cormorant Garamond", "fontWeight": "500", "fontSize": "52", "lineHeight": "115%" }, "type": "typography" },
+      "kicker": { "value": { "fontFamily": "Plus Jakarta Sans", "fontWeight": "600", "fontSize": "11", "letterSpacing": "36%", "textCase": "uppercase" }, "type": "typography" },
+      "bodyLarge": { "value": { "fontFamily": "Plus Jakarta Sans", "fontWeight": "300", "fontSize": "17", "lineHeight": "170%" }, "type": "typography" },
+      "body": { "value": { "fontFamily": "Plus Jakarta Sans", "fontWeight": "300", "fontSize": "15", "lineHeight": "170%" }, "type": "typography" },
+      "cardTitle": { "value": { "fontFamily": "Plus Jakarta Sans", "fontWeight": "600", "fontSize": "12", "letterSpacing": "20%", "textCase": "uppercase" }, "type": "typography" },
+      "cardDesc": { "value": { "fontFamily": "Plus Jakarta Sans", "fontWeight": "300", "fontSize": "13", "lineHeight": "165%" }, "type": "typography" },
+      "navLink": { "value": { "fontFamily": "Plus Jakarta Sans", "fontWeight": "500", "fontSize": "11", "letterSpacing": "22%", "textCase": "uppercase" }, "type": "typography" },
+      "button": { "value": { "fontFamily": "Plus Jakarta Sans", "fontWeight": "600", "fontSize": "12", "letterSpacing": "18%", "textCase": "uppercase" }, "type": "typography" },
+      "statValue": { "value": { "fontFamily": "Cormorant Garamond", "fontWeight": "500", "fontSize": "48" }, "type": "typography" },
+      "wordmark": { "value": { "fontFamily": "Cormorant Garamond", "fontWeight": "600", "fontSize": "26", "letterSpacing": "35%" }, "type": "typography" }
+    }
+  },
+  "$themes": [],
+  "$metadata": { "tokenSetOrder": ["global"] }
+}
