@@ -43,7 +43,7 @@ export default function Home() {
                   <span>Become a Freelancer</span>
                   <Icon name="arrow" size={21} />
                 </Link>
-                <Link to="/partner" className="hero-action">
+                <Link to="/business-introductions" className="hero-action">
                   <Icon name="handshake" size={22} />
                   <span>Build Partnerships</span>
                   <Icon name="arrow" size={21} />

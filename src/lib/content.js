@@ -72,7 +72,7 @@ export const SERVICES = {
       desc: 'We introduce businesses to trusted partners, service providers, investors, and commercial opportunities through our carefully built network. Every introduction is made with purpose, based on shared goals, mutual value, and the potential to build lasting relationships that support long term growth.',
       tags: ['Strategic partnerships', 'Trusted introductions', 'Business collaborations', 'Growth opportunities'],
       actionLabel: 'Build Partnerships',
-      actionTo: '/partner',
+      actionTo: '/business-introductions',
     },
     {
       num: '04',
@@ -92,13 +92,19 @@ export const APPROACH = {
   kicker: 'Our Approach',
   h2a: 'A Proven Process.',
   h2b: 'Exceptional Results.',
+  sub: 'We combine industry expertise with a human-centered approach to connect you with the right talent.',
   steps: [
-    { num: '01', icon: 'ear', title: 'Understand', desc: 'We listen to your goals and define success.' },
-    { num: '02', icon: 'radar', title: 'Source', desc: 'We identify and engage the right talent.' },
-    { num: '03', icon: 'checks', title: 'Assess', desc: 'Rigorous evaluation to ensure the perfect fit.' },
-    { num: '04', icon: 'handshake', title: 'Connect', desc: 'We introduce, facilitate and support the process.' },
-    { num: '05', icon: 'award', title: 'Succeed', desc: 'Ongoing support to ensure long-term impact.' },
+    { num: '01', icon: 'ear', deco: 'users', title: 'Understand', desc: 'We listen to your goals and define success.' },
+    { num: '02', icon: 'radar', deco: 'search', title: 'Source', desc: 'We identify and engage the right talent.' },
+    { num: '03', icon: 'checks', deco: 'fileSearch', title: 'Assess', desc: 'Rigorous evaluation to ensure the perfect fit.' },
+    { num: '04', icon: 'handshake', deco: 'messages', title: 'Connect', desc: 'We introduce, facilitate and support the process.' },
+    { num: '05', icon: 'award', deco: 'trend', title: 'Succeed', desc: 'Ongoing support to ensure long-term impact.' },
   ],
+  cta: {
+    text: 'Our process is built on trust, expertise and commitment',
+    emphasis: 'to delivering real impact.',
+    button: "Let's Start a Conversation",
+  },
 }
 
 export const INDUSTRIES = ['Finance', 'Technology', 'Real Estate', 'Healthcare', 'Consumer Goods']
@@ -118,15 +124,40 @@ export const PARTNER = {
   kicker: 'For Companies',
   h1a: 'Become Our',
   h1b: 'Partner.',
-  sub: 'Let us handle all your recruitment services, end to end, with full discretion.',
-  intro: "Whether you're scaling rapidly, searching for a transformational leader, or building an entire department, HYRO becomes your dedicated talent partner. We invest in understanding your culture, your standards, and your vision. Then we go find the right people.",
-  benefits: ['End-to-End Recruitment', 'Confidential Search', 'Accelerated Delivery', 'Regional Network'],
-  expect: [
-    { num: '01', title: 'Discovery Call', desc: 'We learn your business, culture, and the exact profile you need.' },
-    { num: '02', title: 'Search & Screening', desc: 'We map the market, approach top candidates, and screen rigorously.' },
-    { num: '03', title: 'Curated Shortlist', desc: 'You receive a small, high-quality shortlist. No noise, no filler.' },
-    { num: '04', title: 'Placement & Follow-up', desc: 'We manage the offer process and check in after placement.' },
+  sub: 'Let us handle all your recruitment needs, end to end, with full discretion.',
+  ctaPrimary: "Let's Work Together",
+  ctaSecondary: 'Call Us',
+  phone: '+20 100 123 4567',
+  phoneHref: 'tel:+201001234567',
+  form: {
+    heading: 'Tell us about your hiring needs',
+    sub: "We'll get back to you within 24 hours.",
+  },
+  benefits: [
+    { icon: 'users', title: 'Top Talent', desc: 'Access to high-caliber professionals across industries.' },
+    { icon: 'shield', title: 'Confidential & Discreet', desc: 'Your information and searches are always protected.' },
+    { icon: 'gauge', title: 'Fast & Efficient Delivery', desc: 'We move quickly without compromising quality.' },
+    { icon: 'network', title: 'Extensive Network', desc: 'Strong relationships across the Middle East and beyond.' },
   ],
+  email: 'hyro@hyrorc.com',
+}
+
+export const BIZ_INTRO = {
+  kicker: 'Business Introductions',
+  h1a: 'Connections That',
+  h1b: 'Create Opportunities.',
+  sub: 'We connect businesses with trusted partners, service providers, investors, and opportunities that drive growth.',
+  heroIcons: [
+    { icon: 'network', label: 'Strategic Partnerships' },
+    { icon: 'handshake', label: 'Trusted Network' },
+    { icon: 'briefcase', label: 'Business Referrals' },
+    { icon: 'building', label: 'Commercial Introductions' },
+  ],
+  form: {
+    heading: "Tell Us What You're Looking For",
+    sub: "Share your business needs and we'll connect you with the right people and opportunities.",
+  },
+  lookingFor: ['Strategic Partner', 'Investor', 'Service Provider', 'Client Introduction', 'Other'],
   email: 'hyro@hyrorc.com',
 }
 
@@ -136,8 +167,6 @@ export const JOIN_FORM = {
   h1b: 'Independent Network.',
   sub: "Egypt's most vetted independent professionals, across technology, finance, design, legal, and beyond.",
   expertise: ['Technology', 'Finance', 'Healthcare', 'Marketing', 'Education', 'Engineering', 'Legal', 'Hospitality', 'Real Estate', 'Media & Entertainment', 'Retail', 'Manufacturing', 'Consulting', 'Banking', 'Logistics'],
-  cities: ['Cairo', 'Alexandria', 'Giza', 'Remote', 'Hurghada', 'Sharm El Sheikh', 'Luxor', 'Aswan', 'Port Said', 'Mansoura', 'Tanta', 'Suez'],
-  rates: ['Up to 10,000 EGP / month', '10,000 – 20,000 EGP / month', '20,000 – 35,000 EGP / month', '35,000 – 60,000 EGP / month', '60,000 – 100,000 EGP / month', '100,000+ EGP / month', 'Open to discussion'],
 }
 
 export const FOOTER = {

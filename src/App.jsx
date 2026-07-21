@@ -10,6 +10,7 @@ import OurServices from './pages/OurServices'
 import OurApproach from './pages/OurApproach'
 import Jobs from './pages/Jobs'
 import Partner from './pages/Partner'
+import BusinessIntro from './pages/BusinessIntro'
 import Join from './pages/Join'
 import Contact from './pages/Contact'
 import AdminLogin from './pages/AdminLogin'
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/approach" element={<OurApproach />} />
           <Route path="/jobs" element={<Jobs />} />
           <Route path="/partner" element={<Partner />} />
+          <Route path="/business-introductions" element={<BusinessIntro />} />
           <Route path="/join" element={<Join />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<AdminGate />} />

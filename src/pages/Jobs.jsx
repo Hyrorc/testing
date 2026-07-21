@@ -48,37 +48,38 @@ export default function Jobs() {
 
   return (
     <>
-      <header className="page-head">
-        <div className="container">
-          <Reveal>
-            <span className="kicker centered">{JOBS_FORM.kicker}</span>
-          </Reveal>
-          <Reveal delay={1}>
-            <h1 style={{ marginTop: 20 }}>
-              {JOBS_FORM.h1a} <span className="gold-italic">{JOBS_FORM.h1b}</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={2}>
-            <p className="muted" style={{ maxWidth: 620, margin: '22px auto 0', fontSize: 15, lineHeight: 1.75 }}>
-              {JOBS_FORM.sub}
-            </p>
-          </Reveal>
+      <header className="page-head page-head--photo">
+        <div className="ph-media" aria-hidden="true">
+          <Photo src={PHOTOS.cvDesk} alt="Unlock your potential" veil />
+        </div>
+        <div className="ph-inner">
+          <div className="ph-copy">
+            <Reveal>
+              <span className="kicker">{JOBS_FORM.kicker}</span>
+            </Reveal>
+            <Reveal delay={1}>
+              <h1 style={{ marginTop: 20 }}>
+                {JOBS_FORM.h1a} <span className="gold-italic">{JOBS_FORM.h1b}</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={2}>
+              <p className="muted" style={{ maxWidth: 500, marginTop: 22, fontSize: 16, lineHeight: 1.75 }}>
+                {JOBS_FORM.sub}
+              </p>
+            </Reveal>
+          </div>
+        </div>
+        <div className="ph-curve" aria-hidden="true">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,40 C360,88 1080,88 1440,40 L1440,80 L0,80 Z" style={{ fill: 'var(--paper)' }} />
+            <path d="M0,40 C360,88 1080,88 1440,40" style={{ fill: 'none', stroke: 'var(--gold)', strokeWidth: 2 }} />
+          </svg>
         </div>
       </header>
 
       <section className="section" style={{ paddingTop: 64 }}>
         <div className="container">
-          <div className="form-split">
-            <Reveal className="form-aside">
-              <Photo src={PHOTOS.cvDesk} alt="Unlock your potential">
-                <span className="photo-badge" style={{ top: 16, left: 16 }}>For Candidates</span>
-              </Photo>
-              <div className="feat-list">
-                <div className="feat"><span className="fx"><Icon name="check" size={14} /></span><span className="ft">No endless applications</span></div>
-                <div className="feat"><span className="fx"><Icon name="check" size={14} /></span><span className="ft">We reach out personally</span></div>
-                <div className="feat"><span className="fx"><Icon name="check" size={14} /></span><span className="ft">Your profile stays private</span></div>
-              </div>
-            </Reveal>
+          <div className="form-solo">
           <Reveal>
             <form className="form-card" onSubmit={handleSubmit}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>

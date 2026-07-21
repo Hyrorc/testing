@@ -11,6 +11,8 @@ const FORMS = {
   contact: 'New contact message',
   jobs: 'New candidate profile',
   join: 'New freelancer application',
+  partner: 'New partnership inquiry',
+  business: 'New business introduction inquiry',
 }
 
 // Map a form submission to a RecruitCRM candidate. Returns null for forms that
@@ -51,7 +53,6 @@ function toCandidate(form, fields, attachment) {
       email: fields.email,
       phone: fields.phone || null,
       industry: fields.expertise || null,
-      location: fields.city || null,
       skills: fields.services || null,
       bio: fields.bio || null,
       portfolioUrl: fields.portfolio || null,

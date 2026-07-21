@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { PARTNER } from '../lib/content'
+import { BIZ_INTRO } from '../lib/content'
 import { sendForm } from '../lib/sendForm'
 import { Icon } from '../components/Icons'
 import Reveal from '../components/Reveal'
 import Photo from '../components/Photo'
 import { PHOTOS } from '../lib/photos'
 
-export default function Partner() {
+export default function BusinessIntro() {
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
   const [error, setError] = useState('')
@@ -18,11 +18,11 @@ export default function Partner() {
     setError('')
     setSending(true)
     try {
-      await sendForm('partner', {
+      await sendForm('business', {
         name: fd.get('name'),
         email: fd.get('email'),
         company: fd.get('company'),
-        jobTitle: fd.get('jobTitle'),
+        lookingFor: fd.get('lookingFor'),
         message: fd.get('message'),
       })
       formEl.reset()
@@ -38,31 +38,32 @@ export default function Partner() {
     <>
       <header className="page-head page-head--photo">
         <div className="ph-media" aria-hidden="true">
-          <Photo src={PHOTOS.cityExec} alt="Partner with HYRO" veil />
+          <Photo src={PHOTOS.handshake} alt="Business introductions" veil />
         </div>
         <div className="ph-inner">
           <div className="ph-copy">
             <Reveal>
-              <span className="kicker">{PARTNER.kicker}</span>
+              <span className="kicker">{BIZ_INTRO.kicker}</span>
             </Reveal>
             <Reveal delay={1}>
               <h1 style={{ marginTop: 20 }}>
-                {PARTNER.h1a} <span className="gold-italic">{PARTNER.h1b}</span>
+                {BIZ_INTRO.h1a}<br />
+                <span className="gold-italic">{BIZ_INTRO.h1b}</span>
               </h1>
             </Reveal>
             <Reveal delay={2}>
               <p className="muted" style={{ maxWidth: 500, marginTop: 22, fontSize: 16, lineHeight: 1.75 }}>
-                {PARTNER.sub}
+                {BIZ_INTRO.sub}
               </p>
             </Reveal>
             <Reveal delay={3}>
-              <div className="ph-ctas">
-                <a href={`mailto:${PARTNER.email}`} className="btn btn-primary">
-                  <Icon name="send" size={14} /> {PARTNER.ctaPrimary}
-                </a>
-                <a href={PARTNER.phoneHref} className="btn btn-ghost">
-                  <Icon name="phone" size={14} /> {PARTNER.ctaSecondary}
-                </a>
+              <div className="hero-icon-row">
+                {BIZ_INTRO.heroIcons.map((h) => (
+                  <div key={h.label} className="hero-icon-item">
+                    <span className="hii-ring"><Icon name={h.icon} size={20} /></span>
+                    <span>{h.label}</span>
+                  </div>
+                ))}
               </div>
             </Reveal>
           </div>
@@ -80,41 +81,47 @@ export default function Partner() {
           <Reveal className="hero-form-wrap">
             <form className="form-card" onSubmit={handleSubmit}>
               <div className="hero-form-head">
-                <span className="hero-form-icon"><Icon name="mail" size={19} /></span>
+                <span className="hero-form-icon"><Icon name="send" size={18} /></span>
                 <div>
-                  <h2>{PARTNER.form.heading}</h2>
-                  <p>{PARTNER.form.sub}</p>
+                  <h2>{BIZ_INTRO.form.heading}</h2>
+                  <p>{BIZ_INTRO.form.sub}</p>
                 </div>
               </div>
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                 <div className="form-row">
                   <div className="field">
-                    <label htmlFor="partner-name">Full Name *</label>
-                    <input id="partner-name" name="name" type="text" placeholder="Your name" required />
+                    <label htmlFor="biz-name">Your Name *</label>
+                    <input id="biz-name" name="name" type="text" placeholder="Your name" required />
                   </div>
                   <div className="field">
-                    <label htmlFor="partner-email">Work Email *</label>
-                    <input id="partner-email" name="email" type="email" placeholder="name@company.com" required />
+                    <label htmlFor="biz-email">Work Email *</label>
+                    <input id="biz-email" name="email" type="email" placeholder="name@company.com" required />
                   </div>
                 </div>
                 <div className="form-row">
                   <div className="field">
-                    <label htmlFor="partner-company">Company Name *</label>
-                    <input id="partner-company" name="company" type="text" placeholder="Company name" required />
+                    <label htmlFor="biz-company">Company Name *</label>
+                    <input id="biz-company" name="company" type="text" placeholder="Company name" required />
                   </div>
                   <div className="field">
-                    <label htmlFor="partner-title">Job Title</label>
-                    <input id="partner-title" name="jobTitle" type="text" placeholder="Your job title" />
+                    <label htmlFor="biz-looking">What Are You Looking For? *</label>
+                    <div className="select-wrap">
+                      <select id="biz-looking" name="lookingFor" defaultValue="" required>
+                        <option value="" disabled>Select an option</option>
+                        {BIZ_INTRO.lookingFor.map((opt) => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div className="field">
-                  <label htmlFor="partner-message">How Can We Help You? *</label>
+                  <label htmlFor="biz-message">Tell Us More (Optional)</label>
                   <textarea
-                    id="partner-message"
+                    id="biz-message"
                     name="message"
-                    placeholder="Tell us about the role, team or challenge you're looking to solve."
-                    required
+                    placeholder="Provide a brief description of what you need or who you'd like to connect with."
                   />
                 </div>
               </div>
@@ -144,15 +151,34 @@ export default function Partner() {
             <span className="kicker centered">Why Work With HYRO</span>
           </Reveal>
           <div className="benefits-grid">
-            {PARTNER.benefits.map((b, i) => (
-              <Reveal key={b.title} delay={Math.min(i, 3)}>
-                <div className="benefit-item">
-                  <span className="benefit-icon"><Icon name={b.icon} size={24} /></span>
-                  <div className="benefit-title">{b.title}</div>
-                  <p className="benefit-desc">{b.desc}</p>
-                </div>
-              </Reveal>
-            ))}
+            <Reveal delay={0}>
+              <div className="benefit-item">
+                <span className="benefit-icon"><Icon name="users" size={24} /></span>
+                <div className="benefit-title">Top Talent</div>
+                <p className="benefit-desc">Access to high-caliber professionals across industries.</p>
+              </div>
+            </Reveal>
+            <Reveal delay={1}>
+              <div className="benefit-item">
+                <span className="benefit-icon"><Icon name="shield" size={24} /></span>
+                <div className="benefit-title">Confidential &amp; Discreet</div>
+                <p className="benefit-desc">Your information and searches are always protected.</p>
+              </div>
+            </Reveal>
+            <Reveal delay={2}>
+              <div className="benefit-item">
+                <span className="benefit-icon"><Icon name="gauge" size={24} /></span>
+                <div className="benefit-title">Fast &amp; Efficient Delivery</div>
+                <p className="benefit-desc">We move quickly without compromising quality.</p>
+              </div>
+            </Reveal>
+            <Reveal delay={3}>
+              <div className="benefit-item">
+                <span className="benefit-icon"><Icon name="network" size={24} /></span>
+                <div className="benefit-title">Extensive Network</div>
+                <p className="benefit-desc">Strong relationships across the Middle East and beyond.</p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>

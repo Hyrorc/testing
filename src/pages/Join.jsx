@@ -27,9 +27,7 @@ export default function Join() {
           email: fd.get('email'),
           phone: fd.get('phone'),
           expertise: fd.get('expertise'),
-          city: fd.get('city'),
           services: fd.get('services'),
-          rate: fd.get('rate'),
           portfolio: fd.get('portfolio'),
           bio: fd.get('bio'),
         },
@@ -48,38 +46,38 @@ export default function Join() {
 
   return (
     <>
-      <header className="page-head">
-        <div className="container">
-          <Reveal>
-            <span className="kicker centered">{JOIN_FORM.kicker}</span>
-          </Reveal>
-          <Reveal delay={1}>
-            <h1 style={{ marginTop: 20 }}>
-              {JOIN_FORM.h1a}{' '}
-              <span className="gold-italic">{JOIN_FORM.h1b}</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={2}>
-            <p className="muted" style={{ maxWidth: 620, margin: '22px auto 0', fontSize: 15, lineHeight: 1.75 }}>
-              {JOIN_FORM.sub}
-            </p>
-          </Reveal>
+      <header className="page-head page-head--photo">
+        <div className="ph-media" aria-hidden="true">
+          <Photo src={freelanceLaptop} alt="Join the HYRO freelance network" veil />
+        </div>
+        <div className="ph-inner">
+          <div className="ph-copy">
+            <Reveal>
+              <span className="kicker">{JOIN_FORM.kicker}</span>
+            </Reveal>
+            <Reveal delay={1}>
+              <h1 style={{ marginTop: 20 }}>
+                {JOIN_FORM.h1a} <span className="gold-italic">{JOIN_FORM.h1b}</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={2}>
+              <p className="muted" style={{ maxWidth: 500, marginTop: 22, fontSize: 16, lineHeight: 1.75 }}>
+                {JOIN_FORM.sub}
+              </p>
+            </Reveal>
+          </div>
+        </div>
+        <div className="ph-curve" aria-hidden="true">
+          <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+            <path d="M0,40 C360,88 1080,88 1440,40 L1440,80 L0,80 Z" style={{ fill: 'var(--paper)' }} />
+            <path d="M0,40 C360,88 1080,88 1440,40" style={{ fill: 'none', stroke: 'var(--gold)', strokeWidth: 2 }} />
+          </svg>
         </div>
       </header>
 
       <section className="section" style={{ paddingTop: 64 }}>
         <div className="container">
-          <div className="form-split">
-            <Reveal className="form-aside">
-              <Photo src={freelanceLaptop} alt="Join the HYRO freelance network" noFilter>
-                <span className="photo-badge" style={{ top: 16, left: 16 }}>Freelance Network</span>
-              </Photo>
-              <div className="feat-list">
-                <div className="feat"><span className="fx"><Icon name="check" size={14} /></span><span className="ft">Vetted, premium projects</span></div>
-                <div className="feat"><span className="fx"><Icon name="check" size={14} /></span><span className="ft">Work on your terms</span></div>
-                <div className="feat"><span className="fx"><Icon name="check" size={14} /></span><span className="ft">Trusted client introductions</span></div>
-              </div>
-            </Reveal>
+          <div className="form-solo">
           <Reveal>
             <form className="form-card" onSubmit={handleSubmit}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
@@ -102,28 +100,15 @@ export default function Join() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
                 <div className="form-sec-head">Expertise</div>
-                <div className="form-row">
-                  <div className="field">
-                    <label htmlFor="join-expertise">Field of Expertise</label>
-                    <div className="select-wrap">
-                      <select id="join-expertise" name="expertise" defaultValue="">
-                        <option value="" disabled>Select industry</option>
-                        {JOIN_FORM.expertise.map((f) => (
-                          <option key={f} value={f}>{f}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                  <div className="field">
-                    <label htmlFor="join-city">Location</label>
-                    <div className="select-wrap">
-                      <select id="join-city" name="city" defaultValue="">
-                        <option value="" disabled>Select city</option>
-                        {JOIN_FORM.cities.map((city) => (
-                          <option key={city} value={city}>{city}</option>
-                        ))}
-                      </select>
-                    </div>
+                <div className="field">
+                  <label htmlFor="join-expertise">Field of Expertise</label>
+                  <div className="select-wrap">
+                    <select id="join-expertise" name="expertise" defaultValue="">
+                      <option value="" disabled>Select industry</option>
+                      {JOIN_FORM.expertise.map((f) => (
+                        <option key={f} value={f}>{f}</option>
+                      ))}
+                    </select>
                   </div>
                 </div>
                 <div className="field">
@@ -135,22 +120,9 @@ export default function Join() {
                     placeholder="e.g. UI/UX Design, Brand Strategy, Financial Modeling..."
                   />
                 </div>
-                <div className="form-row">
-                  <div className="field">
-                    <label htmlFor="join-rate">Expected Rate / Salary (Optional)</label>
-                    <div className="select-wrap">
-                      <select id="join-rate" name="rate" defaultValue="">
-                        <option value="" disabled>Select a range</option>
-                        {JOIN_FORM.rates.map((r) => (
-                          <option key={r} value={r}>{r}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                  <div className="field">
-                    <label htmlFor="join-portfolio">Portfolio / Website URL (if applicable)</label>
-                    <input id="join-portfolio" name="portfolio" type="url" placeholder="https://yourportfolio.com" />
-                  </div>
+                <div className="field">
+                  <label htmlFor="join-portfolio">Portfolio / Website URL (if applicable)</label>
+                  <input id="join-portfolio" name="portfolio" type="url" placeholder="https://yourportfolio.com" />
                 </div>
               </div>
 
