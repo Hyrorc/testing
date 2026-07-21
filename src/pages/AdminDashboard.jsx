@@ -397,7 +397,7 @@ const ADMIN_CSS = `
 .adm-input { flex: 1 1 280px; min-width: 220px; }
 .adm-input::placeholder { color: rgba(245,243,240,0.35); }
 .adm-input:focus, .adm-select:focus { border-color: rgba(203,168,77,0.6); background: rgba(203,168,77,0.04); }
-.adm-select option { background: #031B3A; color: var(--ivory); }
+.adm-select option { background: #0E1838; color: var(--ivory); }
 .adm-check { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: rgba(245,243,240,0.8); cursor: pointer; user-select: none; }
 .adm-check input { width: 16px; height: 16px; accent-color: var(--gold); }
 
