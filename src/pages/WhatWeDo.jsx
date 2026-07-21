@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { ABOUT, SERVICES, STATS } from '../lib/content'
+import { ABOUT, STATS } from '../lib/content'
 import { Icon } from '../components/Icons'
 import Reveal from '../components/Reveal'
 import CountUp from '../components/CountUp'
