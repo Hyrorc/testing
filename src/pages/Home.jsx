@@ -104,44 +104,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MEDIA SPLIT — human story */}
-      <section className="section">
-        <div className="container">
-          <div className="media-split">
-            <Reveal className="ms-media">
-              <Photo src={PHOTOS.handshake} alt="A successful placement, sealed with a handshake" ratio="5 / 4">
-                <span className="photo-badge" style={{ bottom: 18, left: 18 }}>Where talent meets opportunity</span>
-              </Photo>
-            </Reveal>
-            <Reveal delay={1} className="ms-copy">
-              <span className="kicker">Our Promise</span>
-              <h2 className="section-h2" style={{ marginTop: 16 }}>
-                We don&apos;t fill seats.<br />We build teams that last.
-              </h2>
-              <p className="lead" style={{ marginTop: 20 }}>
-                Every search starts with your goals and your culture, not a stack of resumes. We map the market,
-                engage the people who truly move the needle, and hand you a shortlist you can actually act on.
-              </p>
-              <div className="feat-list" style={{ marginTop: 28 }}>
-                <div className="feat">
-                  <span className="fx"><Icon name="crosshair" size={15} /></span>
-                  <span><span className="ft">Precision matching</span><span className="fd">Curated candidates aligned to your role, culture, and trajectory.</span></span>
-                </div>
-                <div className="feat">
-                  <span className="fx"><Icon name="shield" size={15} /></span>
-                  <span><span className="ft">Absolute discretion</span><span className="fd">Confidential mandates handled with complete privacy.</span></span>
-                </div>
-              </div>
-              <div style={{ marginTop: 30 }}>
-                <Link to="/approach" className="btn btn-navy">
-                  See Our Approach <Icon name="arrow" size={14} />
-                </Link>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
     </>
   )
 }
